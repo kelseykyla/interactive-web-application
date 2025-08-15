@@ -1,5 +1,5 @@
 ## Live Demo
-
+https://kelseykyla.github.io/interactive-web-application/
 ## USIU-A Event Booking Dashboard
 USIU-A Event Booking Dashboard is a fully responsive, interactive web application built with pure HTML, CSS, and JavaScript. It allows students to browse upcoming university events, register instantly, and see live updates to available slots. The system validates input, provides real-time feedback through dynamic UI updates, and stores data in localStorage so bookings and slot counts persist after page refresh. Designed from scratch without frameworks, it demonstrates semantic HTML structure, adaptive CSS for multiple screen sizes, and JavaScript-driven interactivity.
 ## Sreenshots
