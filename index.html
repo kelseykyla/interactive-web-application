@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>USIU-A Event Booking Dashboard</title>
+  <!-- External CSS (Part 2) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header: semantic, contains logo and title -->
+  <header class="site-header">
+    <div class="brand">
+      <!-- Placeholder logo as inline SVG to avoid external dependency -->
+      <svg class="logo" width="120" height="40" viewBox="0 0 120 40" aria-label="USIU-A Logo" role="img">
+        <rect width="120" height="40" fill="#0b3d91" rx="6"/>
+        <text x="60" y="25" text-anchor="middle" font-size="18" fill="#ffffff" font-family="Arial, Helvetica, sans-serif">USIU-A</text>
+      </svg>
+      <h1>Event Booking Dashboard</h1>
+    </div>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#events">Events</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Events Section: Table/Grid of events with at least 5 rows -->
+    <section id="events" aria-labelledby="events-title" class="card">
+      <div class="section-head">
+        <h2 id="events-title">Upcoming Events</h2>
+        <p class="muted">Click <em>Register</em> to reserve a slot instantly.</p>
+      </div>
+
+      <!-- Success/Info messages injected here (no page refresh) -->
+      <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+
+      <div class="table-wrapper">
+        <table class="events-table" role="table">
+          <thead>
+            <tr>
+              <th scope="col">Event Name</th>
+              <th scope="col">Date</th>
+              <th scope="col">Venue</th>
+              <th scope="col">Slots Available</th>
+              <th scope="col">Register</th>
+            </tr>
+          </thead>
+          <tbody id="events-body">
+            <!-- Rows are rendered dynamically by app.js from persistent data -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section id="register" aria-labelledby="register-title" class="card">
+      <div class="section-head">
+        <h2 id="register-title">Register via Form</h2>
+        <p class="muted">Fill your details and choose an event from the dropdown.</p>
+      </div>
+
+      <form id="register-form" novalidate>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g., Jane Doe" required />
+            <small class="error" id="name-error" aria-live="polite"></small>
+          </div>
+          <div class="form-field">
+            <label for="studentId">Student ID</label>
+            <!-- Pattern is validated in JS; kept open here for UX flexibility -->
+            <input type="text" id="studentId" name="studentId" placeholder="e.g., USIU-123456" required />
+            <small class="error" id="id-error" aria-live="polite"></small>
+          </div>
+          <div class="form-field">
+            <label for="eventSelect">Event</label>
+            <select id="eventSelect" name="eventSelect" required>
+              <!-- Options are injected by app.js to stay in sync with the events table -->
+            </select>
+            <small class="error" id="event-error" aria-live="polite"></small>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Registration</button>
+      </form>
+
+      <!-- Confirmation appears here after successful submission -->
+      <div id="confirmation" class="confirmation" aria-live="polite"></div>
+    </section>
+
+    <!-- About / Footer content note -->
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p class="muted">This dashboard is a student-built prototype for USIU-A, showcasing semantic HTML, responsive CSS, and dynamic JavaScript with <code>localStorage</code> persistence.</p>
+    </section>
+  </main>
+
+  <!-- Footer with copyright and placeholder socials -->
+  <footer class="site-footer">
+    <p>© <span id="year"></span> USIU-A. All rights reserved.</p>
+    <ul class="socials">
+      <li><a href="#" aria-label="Follow on X">X</a></li>
+      <li><a href="#" aria-label="Follow on Instagram">Instagram</a></li>
+      <li><a href="#" aria-label="Follow on LinkedIn">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+  <!-- External JavaScript (Part 3) -->
+  <script src="app.js" defer></script>
+</body>
+</html>
